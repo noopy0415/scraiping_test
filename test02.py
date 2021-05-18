@@ -4,8 +4,9 @@ https://inasala.com/scraping-google-search/
 pandasを使わない仕様
 '''
 
-import bs4
 import requests
+import selenium
+import bs4
 
 # import pandas as pd
 

@@ -3,9 +3,9 @@ PythonでGoogle検索上位100サイトをスクレイピングする方法を�
 https://inasala.com/scraping-google-search/
 '''
 
+import requests
 import bs4
 import pandas as pd
-import requests
 
 search_keyword = 'ブログ初心者'
 
