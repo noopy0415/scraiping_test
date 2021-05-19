@@ -10,6 +10,7 @@ pandas = "*"
 lxml = "*"
 selenium = "*"
 chromedriver-binary-auto = "*"
+bs4 = "*"
 
 [dev-packages]
 

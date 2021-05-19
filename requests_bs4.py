@@ -2,15 +2,10 @@
 Pythonでクックパッドのレシピ検索をスクレイピングする方法
 Selenium + BeautifulSoup
 """
+import time
 
 import requests as requests
-from selenium import webdriver
-
 import bs4
-
-from with_selenium import chromedriver_options, get_recipe_page_with_selenium, get_recipes_by_driver_with_selenium
-
-base_url = 'https://cookpad.com'
 
 
 def get_recipe_page_with_requests(base_url, food):
@@ -35,21 +30,17 @@ def get_recipes_by_html_with_bs4(base_url, html):
 
 
 def main():
+    base_url = 'https://cookpad.com'
     food = 'とまと'
 
-    with webdriver.Chrome(options=chromedriver_options()) as driver:
-        driver = get_recipe_page_with_selenium(driver, food)['driver']
-        recipes = get_recipes_by_html_with_selenium(driver)
-
-    html = recipe_page['html']
-    recipes = get_recipes_by_driver_with_selenium(recipe_page['driver'])
-
-    # recipes = get_recipe_page_with_requests(base_url, food)
-    # recipes = get_recipes_by_html_with_bs4(base_url, html)
+    html = get_recipe_page_with_requests(base_url, food)
+    recipes = get_recipes_by_html_with_bs4(base_url, html)
 
     for recipe in recipes:
-        print(f"{recipe['title']}, {recipe['url']}")
+        print(f"レシピ名 {recipe['title']}, URL:{recipe['url']}")
 
 
 if __name__ == '__main__':
+    start = time.time()
     main()
+    print(time.time() - start)

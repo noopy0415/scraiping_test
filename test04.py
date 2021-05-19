@@ -13,10 +13,12 @@ def main():
     driver.find_element_by_name('q').send_keys('八幡平')
     driver.find_element_by_name('q').send_keys(Keys.ENTER)
     driver.find_element_by_xpath('//*[@id="rso"]/div[1]/div/div/div[1]/a/h3').click()
-
+    driver.find_element_by_css_selector(
+        'body > table: nth - child(3) > tbody > tr:nth - child(1) > td: nth - child(3) > a').click()
     time.sleep(5)
 
     # driver.close()
+
 
 if __name__ == '__main__':
     main()
